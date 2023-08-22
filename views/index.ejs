@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/127755e485.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="sun"></div>
+    <h1 class="h1">ToDo App</h1>
+    <div id="container" class="container">
+        <div id="form">
+            <form action="create" method="POST">
+                <div id="desc_input">
+                    <!-- <h1 class="desch1" >Description</h1> -->
+                    <label for="desc">Description</label>
+                    <input type="text" id="desc" name="desc" placeholder="What do you need to do?" required>
+                </div>
+                <div class="dropdown">
+                    <h1>Category</h1>
+                    <select class="form-select btn select" name="category" aria-label="Default select example" required>
+                        <option selected>Choose the Category</option>
+                        <option value="1" ><a href="#">Personal</a></option>
+                        <option value="1"><a href="#">Work</a></option>
+                        <option value="1"><a href="#">School</a></option>
+                        <option value="1"><a href="#">Cleaning</a></option>
+                        <option value="1"><a href="#">Other</a></option>
+                      </select>
+                </div>
+                <div class="date" aria-required="true">
+                    <label for="date">Due Date</label><br>
+                    <input type="date" id="date" name="date" placeholder="Due Date">
+                </div>
+                <div class="button">
+                    <button type="submit"><span><i class="fa-solid fa-plus fa-lg"></i></span>Add</button>
+                    <button type="submit"><span><i class="fa-solid fa-trash fa-lg"></i></span>Delete</button>
+                </div>
+            </form>
+        </div>
+        <div class="container1">
+            <ul>
+                <h1 class="d">Description</h1>
+                <h1 class="c">Category</h1>
+                <h1 class="da">Date</h1>
+                <% for(let i of list){%>
+                    <li class="li">
+                        <input type="checkbox" placeholder="">
+                        <p class="p1"><%=i.desc%></p>
+                        <p id="category1" class="p2"><%=i.category%></p>
+                        <p class="p3"><%=i.date%></p>
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
