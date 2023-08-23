@@ -15,47 +15,60 @@
     <h1 class="h1">ToDo App</h1>
     <div id="container" class="container">
         <div id="form">
-            <form action="create" method="POST">
+            <form action="/user" method="post">
                 <div id="desc_input">
                     <!-- <h1 class="desch1" >Description</h1> -->
-                    <label for="desc">Description</label>
-                    <input type="text" id="desc" name="desc" placeholder="What do you need to do?" required>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="desc" placeholder="What do you need to do?" required>
                 </div>
                 <div class="dropdown">
                     <h1>Category</h1>
                     <select class="form-select btn select" name="category" aria-label="Default select example" required>
                         <option selected>Choose the Category</option>
-                        <option value="1" ><a href="#">Personal</a></option>
-                        <option value="1"><a href="#">Work</a></option>
-                        <option value="1"><a href="#">School</a></option>
-                        <option value="1"><a href="#">Cleaning</a></option>
-                        <option value="1"><a href="#">Other</a></option>
-                      </select>
+                        <option value="Personal"><a href="#">Personal</a></option>
+                        <option value="Work"><a href="#">Work</a></option>
+                        <option value="School"><a href="#">School</a></option>
+                        <option value="Cleaning"><a href="#">Cleaning</a></option>
+                        <option value="Other"><a href="#">Other</a></option>
+                    </select>
                 </div>
-                <div class="date" aria-required="true">
-                    <label for="date">Due Date</label><br>
-                    <input type="date" id="date" name="date" placeholder="Due Date">
+                <div class="date">
+                    <label for="dates">Due Date</label><br>
+                    <input type="date" name="date" placeholder="Due Date" required>
                 </div>
                 <div class="button">
-                    <button type="submit"><span><i class="fa-solid fa-plus fa-lg"></i></span>Add</button>
-                    <button type="submit"><span><i class="fa-solid fa-trash fa-lg"></i></span>Delete</button>
+                    <button type="submit"><span><i class="fa-solid fa-plus fa-lg"></i></span>Add Task</button>
                 </div>
             </form>
         </div>
-        <div class="container1">
-            <ul>
-                <h1 class="d">Description</h1>
-                <h1 class="c">Category</h1>
-                <h1 class="da">Date</h1>
-                <% for(let i of list){%>
-                    <li class="li">
-                        <input type="checkbox" placeholder="">
-                        <p class="p1"><%=i.desc%></p>
-                        <p id="category1" class="p2"><%=i.category%></p>
-                        <p class="p3"><%=i.date%></p>
-                    </li>
-                    <%}%>
-            </ul>
+        <div class="container1 card">
+            <form action="/delete" method="post">
+                <!-- <a href="/delete"> <span><i class="fa-solid fa-trash fa-lg"></i></span>Delete</a> -->
+                <button class="btn1"><span><i class="fa-solid fa-trash fa-lg"></i></span>Delete</button>
+                <ul>
+                    <div class="container2">
+                        <h1 class="d"><span><i class="fa-solid fa-audio-description" style="padding-right:.5rem;"></i></span>Description</h1>
+                        <h1 class="c"><span><i class="fa-solid fa-list" style="color: #eceff3;padding-right: .5rem;"></i></span>Category</h1>
+                        <h1 class="da"><span><i class="fa-solid fa-calendar-days" style="color: #f7f9fc; padding-right:.5rem;"></i></span>Date</h1>
+                    </div>
+                    <% for(let i of list){%>
+                        <li class="li">
+                            <input id="check" name="checkbox" type="checkbox" placeholder="" value=<%=i._id%>>
+                            <div class="card">
+                                <p class="p1">
+                                    <%=i.desc%>
+                                </p>
+                                <p id="category1" class="p2">
+                                    <%=i.category%>
+                                </p>
+                                <p class="p3">
+                                    <%=i.date%>
+                                </p>
+                            </div>
+                        </li>
+                        <%}%>
+                </ul>
+            </form>
         </div>
     </div>
 
